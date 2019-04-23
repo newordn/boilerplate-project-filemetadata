@@ -22,7 +22,8 @@ app.get('/hello', function(req, res){
 // file description endpoint
 app.post('/api/fileanalyse',upload.single("upfile"),function(req,res){
 const file =req.file;
-  res.json({"name":file.originalname,"type":file.filename,"size":file.size});
+console.log(file)
+  res.json({"name":file.originalname,"type":file.mimetype,"size":file.size});
 });
 
 app.listen(process.env.PORT || 3000, function () {
